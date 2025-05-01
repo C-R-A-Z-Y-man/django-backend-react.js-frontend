@@ -2,6 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book
 from .forms import BookForm
 
+#for rest api
+from .serializers import BookSerializer 
+from rest_framework import viewsets
+
+"""
+
+    Following are for web app
+    
+"""
 # Create Book
 def create_book(request):
     if request.method == 'POST':
@@ -37,3 +46,14 @@ def delete_book(request, pk):
         book.delete()
         return redirect('book_list')
     return render(request, 'delete_book.html', {'book': book})
+
+
+"""
+
+    Following are for Rest API
+    
+"""
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer

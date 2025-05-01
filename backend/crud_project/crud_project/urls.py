@@ -19,6 +19,33 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('crud_app.urls')),
+    path('', include('crud_app.urls')), #has both web and api routes.
 ]
 
+"""
+#has both web and api routes.
+
+    Api prefix for api routes
+
+        List all books: GET /api/books/
+
+        Create a new book: POST /api/books/
+
+        Retrieve a book: GET /api/books/<id>/
+
+        Update a book: PUT /api/books/<id>/
+
+        Delete a book: DELETE /api/books/<id>/
+        
+    Web routes :
+    
+        List all books: GET /books/
+
+        Create a new book: POST /books/
+
+        Retrieve a book: GET /books/<id>/
+
+        Update a book: PUT /books/<id>/
+
+        Delete a book: DELETE /books/<id>/        
+"""
